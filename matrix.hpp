@@ -29,6 +29,10 @@ class Matrix {
         for ( auto& row : matrix )
             row.resize( cols );
     }
+    
+    std::pair<int, int> getSize() {
+        return std::pair(rows,cols);
+    }
 
     void reshape( int n, int m ) {
         rows = n;
