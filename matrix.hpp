@@ -40,7 +40,8 @@ class Matrix {
 
     void fill( U value ) {
         for ( auto& row : matrix )
-            row.assign( row.begin(), row.end(), value );
+            for ( auto& val : row )
+                val = value;
     }
 
     void randomize( U upper_bound, U lower_bound = 0 ) {
