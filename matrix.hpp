@@ -86,6 +86,21 @@ class Matrix {
         }
         return result;
     }
+    Matrix operator* ( Matrix second ) {
+        if ( cols != second.rows )
+            throw "SIZE_NO_MATCH";
+        Matrix result( rows, second.cols );
+        for ( int i = 0; i < result.rows; ++i ) {
+            for ( int j = 0; j < result.cols; ++j ) {
+                U sum{};
+                for ( int k = 0; k < cols; ++k ) {
+                    sum += matrix[i][k] * second[k][j];
+                }
+                result[i][j] = sum;
+            }
+        }
+        return result;
+    }
     Matrix operator+ ( Matrix second ) {
         if ( rows != second.rows && cols != second.cols )
             throw "SIZE_NO_MATCH";
