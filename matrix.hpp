@@ -126,6 +126,13 @@ class Matrix {
         }
         return result;
     }
+    template<class Function>
+    Function map(Function f) {
+        for ( auto& row : matrix ) 
+            for ( auto& value : row )
+                f( value );
+        return f;
+    }
 
     friend std::ostream& operator<< ( std::ostream& os, const Matrix& target ) {
         for ( auto& row : target.matrix ) {
