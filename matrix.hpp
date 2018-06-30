@@ -47,7 +47,7 @@ class Matrix {
     void randomize( U upper_bound, U lower_bound = 0 ) {
         for ( auto& row : matrix )
             for ( auto& value : row )
-                value = float(rand()%1000 / 1000) * (upper_bound - lower_bound) + lower_bound;
+                value = float(rand()%1000) / 1000 * (upper_bound - lower_bound) + lower_bound;
     }
 
     void transpose() {
